@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flightservice
+spec:
+  type: NodePort        # Exposes the service outside the cluster via a port on the node
+  selector:
+    app: flightservice  # must match the labels in your Deployment
+  ports:
+    - protocol: TCP
+      port: 9090       # internal cluster port
+      targetPort: 9090 # port your container listens on
+      nodePort: 30090  # external port you can use on minikube

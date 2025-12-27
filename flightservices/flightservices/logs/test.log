@@ -106,3 +106,6 @@
 2025-12-27 19:47:39.390  INFO 1 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2025-12-27 19:47:39.578  INFO 1 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
 2025-12-27 19:47:39.580  INFO 1 --- [main] c.tus.flight.FlightservicesApplication   : Started FlightservicesApplication in 2.194 seconds (JVM running for 2.4)
+2025-12-27 21:54:37.223  INFO 1 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-27 21:54:37.223  INFO 1 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-27 21:54:37.226  INFO 1 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms

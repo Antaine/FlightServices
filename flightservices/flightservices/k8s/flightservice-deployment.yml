@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flightservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flightservice
+  template:
+    metadata:
+      labels:
+        app: flightservice
+    spec:
+      containers:
+      - name: flightservice
+        image: antoconn/flightservices-flightservice:latest
+        imagePullPolicy: Never   # ← Use the local Minikube image
+        ports:
+        - containerPort: 9090
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/reservation
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: root
