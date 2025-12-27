@@ -10,12 +10,10 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   flightservice:
-    build: .
-    container_name: flightservice
-    restart: always
+    image: antoconn/flightservices-flightservice:latest
     depends_on:
       - mysql
     ports:
@@ -25,7 +23,7 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     volumes:
-      - ./logs:/app/logs   # ← mount logs folder to host
+      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logs:/app/logs   # ← mount logs folder to host
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.19.2
@@ -41,12 +39,11 @@ services:
 
   logstash:
     image: docker.elastic.co/logstash/logstash:8.19.2
-    container_name: logstash
     depends_on:
       - elasticsearch
     volumes:
-      - ./logs:/usr/share/logstash/pipeline/logs
-      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logs:/usr/share/logstash/pipeline/logs
+      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logstash/pipeline:/usr/share/logstash/pipeline
     ports:
       - "5044:5044"
 
