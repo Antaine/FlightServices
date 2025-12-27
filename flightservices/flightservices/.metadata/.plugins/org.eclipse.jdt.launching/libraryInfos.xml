@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+    <libraryInfo home="/usr/lib/jvm/jdk-25.0.1" version="25.0.1"/>
     <libraryInfo home="C:\Users\Aconn\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412\jre" version="21.0.8"/>
     <libraryInfo home="C:\Users\Aconn\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412" version="21.0.8">
         <bootpath>
@@ -14,4 +15,18 @@
     </libraryInfo>
     <libraryInfo home="C:\Program Files\Amazon Corretto\jdk17.0.17_10" version="17.0.17"/>
     <libraryInfo home="C:\Program Files\Java\jdk-25" version="25.0.1"/>
+    <libraryInfo home="/opt/eclipse-jee/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre" version="21.0.8"/>
+    <libraryInfo home="/usr/lib/jvm/java-21-openjdk-amd64" version="21.0.8"/>
+    <libraryInfo home="/opt/eclipse-jee/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412" version="21.0.8">
+        <bootpath>
+            <entry path="null"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="null"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="null"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="/home/anto/.sdkman/candidates/java/25-open" version="25"/>
 </libraryInfos>
