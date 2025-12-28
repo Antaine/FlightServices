@@ -1,0 +1,98 @@
+# Default values for flightservice.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count
+replicaCount: 2
+
+# Container image settings
+image:
+  repository: antoconn/flightservices-flightservice
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+# Environment variables
+env:
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/reservation
+  SPRING_DATASOURCE_USERNAME: root
+  SPRING_DATASOURCE_PASSWORD: root
+
+# Image pull secrets (for private registries)
+imagePullSecrets: []
+
+# Override chart name
+nameOverride: ""
+fullnameOverride: ""
+
+# Service account
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+# Pod annotations and labels
+podAnnotations: {}
+podLabels: {}
+
+# Pod and container security context
+podSecurityContext: {}
+securityContext: {}
+
+# Kubernetes service
+service:
+  type: NodePort
+  port: 9090
+  nodePort: 30090
+
+# Ingress settings
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+# HTTPRoute (gateway API)
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs:
+    - name: gateway
+      sectionName: http
+  hostnames:
+    - chart-example.local
+  rules: []
+
+# Autoscaling (disabled by default)
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+# Resource requests and limits
+resources: {}
+
+# Liveness and readiness probes
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+# Additional volumes and mounts
+volumes: []
+volumeMounts: []
+
+# Node scheduling
+nodeSelector: {}
+tolerations: []
+affinity: {}

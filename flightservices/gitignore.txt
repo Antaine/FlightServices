@@ -1,2 +1,4 @@
 # Ignore Eclipse workspace
 .metadata/
+minikube-linux-amd64
+
