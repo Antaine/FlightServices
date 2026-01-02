@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: reservation
     ports:
-      - "3306:3306"
+      - "3308:3306"   # host 3307 → container 3306
     volumes:
       - mysql_data:/var/lib/mysql
       - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/db/init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -17,13 +17,13 @@ services:
     depends_on:
       - mysql
     ports:
-      - "9090:9090"
+      - "9092:9090"   # host 9091 → container 9090
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/reservation
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     volumes:
-      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logs:/app/logs   # ← mount logs folder to host
+      - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logs:/app/logs
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.19.2
@@ -33,7 +33,7 @@ services:
       - xpack.security.enabled=false
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
     ports:
-      - "9200:9200"
+      - "9202:9200"   # host 9201 → container 9200
     volumes:
       - es_data:/usr/share/elasticsearch/data
 
@@ -45,7 +45,7 @@ services:
       - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logs:/usr/share/logstash/pipeline/logs
       - /home/anto/Workspace/Container/FlightServices/flightservices/flightservices/logstash/pipeline:/usr/share/logstash/pipeline
     ports:
-      - "5044:5044"
+      - "5046:5044"   # host 5045 → container 5044
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.19.2
@@ -53,7 +53,7 @@ services:
     depends_on:
       - elasticsearch
     ports:
-      - "5601:5601"
+      - "5603:5601"   # host 5602 → container 5601
 
 volumes:
   mysql_data:
